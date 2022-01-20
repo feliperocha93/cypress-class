@@ -7,6 +7,7 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
-    "cypress": "3.6"
+    "cypress": "3.6",
+    "cypress-xpath": "^1.6.2"
   }
 }
