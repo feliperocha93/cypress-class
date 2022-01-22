@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 describe("Cypress basics", () => {
-  it.only("Should visit a page and assert title", () => {
+  it("Should visit a page and assert title", () => {
     cy.visit("https://www.wcaquino.me/cypress/componentes.html");
 
     cy.title().should("be.equal", "Campo de Treinamento");

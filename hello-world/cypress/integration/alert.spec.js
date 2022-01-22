@@ -22,6 +22,10 @@ describe("Work with alerts", () => {
     cy.get('#alert').click();
   })
 
+  it('Alert using commands', () => {
+    cy.clickAlert('#alert', 'Alert Simples');
+  });
+
   it('Alert com mock', () => {
     const stub = cy.stub().as('alerta');
     cy.on('window:alert', stub);
