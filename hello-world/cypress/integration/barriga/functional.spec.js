@@ -58,8 +58,8 @@ describe("Should test at a functional level", () => {
     cy.xpath(loc.SALDO.FN_XP_SALDO_CONTA('Conta para saldo')).should('contain', '534,00');
 
     cy.get(loc.MENU.EXTRATO).click();
-    cy.get(loc.MOVIMENTACAO.CONTA).select('Conta para saldo');
     cy.xpath(loc.EXTRATO.FN_XP_ALTERAR_ELEMENTO('Movimentacao 1, calculo saldo')).click();
+    cy.get(loc.MOVIMENTACAO.CONTA).select('Conta para saldo');
     cy.get(loc.MOVIMENTACAO.DESCRICAO).should('have.value', 'Movimentacao 1, calculo saldo');
     cy.get(loc.MOVIMENTACAO.STATUS).click();
     cy.get(loc.MOVIMENTACAO.BTN_SALVAR).click();
