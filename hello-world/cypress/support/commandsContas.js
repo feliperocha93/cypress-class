@@ -5,7 +5,7 @@ Cypress.Commands.add('acessarMenuConta', () => {
   cy.get(loc.MENU.CONTAS).click();
 });
 
-Cypress.Commands.add('inserirConta', () => {
-  cy.get(loc.CONTAS.NOME).type('Conta de teste');
+Cypress.Commands.add('inserirConta', (nome) => {
+  cy.get(loc.CONTAS.NOME).type(nome);
   cy.get(loc.CONTAS.BTN_SALVAR).click();
 });

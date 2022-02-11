@@ -67,7 +67,6 @@ describe("Should test at a functional level", () => {
         cy.request({
           method: 'POST',
           url: '/transacoes',
-          
           body: {
             conta_id,
             data_pagamento: Cypress.moment().add({days:1}).format('DD/MM/YYYY'),
