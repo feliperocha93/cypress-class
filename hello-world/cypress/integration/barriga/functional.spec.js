@@ -53,10 +53,7 @@ describe("Should test at a functional level", () => {
     cy.xpath(loc.EXTRATO.FN_XP_BUSCA_ELEMENTO('Desc', '123')).should('exist');
   });
 
-  it.only('Should get balance', () => {
-    cy.get(loc.MENU.HOME).click();
-    cy.xpath(loc.SALDO.FN_XP_SALDO_CONTA('Conta para saldo')).should('contain', '534,00');
-
+  it('Should get balance', () => {
     cy.get(loc.MENU.EXTRATO).click();
     cy.xpath(loc.EXTRATO.FN_XP_ALTERAR_ELEMENTO('Movimentacao 1, calculo saldo')).click();
     cy.get(loc.MOVIMENTACAO.CONTA).select('Conta para saldo');
@@ -64,6 +61,11 @@ describe("Should test at a functional level", () => {
     cy.get(loc.MOVIMENTACAO.STATUS).click();
     cy.get(loc.MOVIMENTACAO.BTN_SALVAR).click();
     cy.get(loc.MESSAGE).should('contain', 'sucesso');
+
+    /*
+    * Aguardando para o back end processar a última transação.
+    */
+    cy.wait(1000);
 
     cy.get(loc.MENU.HOME).click();
     cy.xpath(loc.SALDO.FN_XP_SALDO_CONTA('Conta para saldo')).should('contain', '4.034,00');
